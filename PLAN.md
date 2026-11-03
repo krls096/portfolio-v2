@@ -92,9 +92,10 @@ Generada con la skill **ui-ux-pro-max** (estilo *Liquid Glass*, patrón *Scroll-
    Datos de ejemplo/anonimizados (no datos reales de clientes).
 
 5. **Proyectos** (bento grid, el primero más grande)
-   - **Ponent Labs** (ponentlabs.com): la marca, agencia de automatización e IA.
-   - **Motor de reels y edits con IA**: vídeos 100 % hechos con código (Remotion), voz sintética, música y efectos montados automáticamente al ritmo. Se ilustra con un vídeo corto en bucle.
-   - **Dashboard de prospección para Umbral**: panel para comerciales con *scoring* de empresas, guiones de llamada, gestión de objeciones, análisis de la web del cliente y seguimiento de contactos. Solo capturas con **datos ficticios**, nunca los reales.
+   - **Ponent Labs** (ponentlabs.com): la marca. Soluciones a medida para negocios en Valencia: "primero el problema, después la herramienta". Enlace a la web.
+   - **Umbral** (producto de Ponent Labs para inmobiliarias): que ningún contacto se quede esperando, cada consulta atendida y con seguimiento hasta el cierre. Enlace a la demo pública.
+   - **Pipeline de vídeo con IA** (reels y edits): no tiene interfaz, y ese es el gancho. Un agente de IA (Claude Code) con skills propias escribe el guion, genera la voz, anima todo en código con Remotion, añade música y efectos y renderiza el MP4. Tú diriges y revisas. Se muestra con el reel de ejemplo en bucle y sin sonido (`public/media/reel-engine.mp4`, 1,5 MB). Próximo paso: frontend propio.
+   - **Panel comercial interno de Umbral**: se menciona **sin capturas ni enlace** (tiene datos reales). El valor está en la información enriquecida con IA: *scoring* de cada empresa, guiones de llamada, objeciones previstas y análisis de su web. Se ilustra con iconos y chips, no con imágenes.
    - **PropFlow**: dashboard de *scoring* inmobiliario (n8n + Supabase + WhatsApp).
    - **Plantilla "link in bio" estilo iOS**.
    Cada tarjeta con *preview*, chips de stack y enlace cuando sea público.
@@ -173,8 +174,9 @@ Revisión contigo al final de las fases 2, 3 y 4 con capturas del navegador.
 
 ## 9. Pendiente de tu parte (no bloquea la fase 1)
 
-- Capturas o un vídeo corto de: el motor de reels (un edit terminado), el dashboard de Umbral **con datos ficticios** y ponentlabs.com.
-- Si alguno de esos proyectos tiene URL pública que se pueda enlazar.
+- ✅ Reel de ejemplo recibido y optimizado para la web.
+- ⚠️ **Edit (omens):** usa imágenes de un videoclip y una canción de terceros. No se incrusta en el portfolio por derechos de autor. Si quieres mostrar edits, usamos uno hecho con material propio o libre.
+- ✅ Panel comercial de Umbral: solo descripción, sin capturas.
 
 ## 10. Dominio: portfolio vs. clientes de Ponent Labs
 

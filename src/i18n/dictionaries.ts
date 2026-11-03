@@ -23,7 +23,35 @@ export const es = {
   'kpi.orders': 'Pedidos / mes',
   'kpi.uptime': 'Automatización',
 
-  'preview.note': 'Fase 1 · vista de prueba del sistema visual',
+  'nav.label': 'Navegación principal',
+
+  'svc.eyebrow': 'Servicios',
+  'svc.title': 'Lo que hago',
+  'svc.sub': 'Tres piezas que encajan entre sí: procesos que se ejecutan solos, IA que decide y una infraestructura que no se cae.',
+  'svc.auto': 'Automatización',
+  'svc.auto.d': 'Workflows que ejecutan procesos completos de principio a fin sin intervención humana.',
+  'svc.ai': 'IA y agentes',
+  'svc.ai.d': 'LLMs y agentes integrados en el día a día: clasifican, extraen datos y responden.',
+  'svc.infra': 'Infraestructura',
+  'svc.infra.d': 'Docker, VPS y bases de datos preparadas para producción continua.',
+
+  'prj.eyebrow': 'Proyectos',
+  'prj.title': 'Lo que he construido',
+  'prj.reel.t': 'Pipeline de vídeo con IA',
+  'prj.reel.d': 'Un agente de IA escribe el guion, pone la voz, anima en código y renderiza. Sin cámara ni editor.',
+  'prj.umbral.t': 'Panel comercial de Umbral',
+  'prj.umbral.d': 'Herramienta interna con cada empresa enriquecida por IA: scoring, guion de llamada, objeciones previstas y análisis de su web.',
+  'prj.umbral.private': 'Uso interno',
+  'prj.view': 'Ver proyecto',
+
+  'exp.eyebrow': 'Trayectoria',
+  'exp.title': 'Experiencia',
+
+  'cta.title': '¿Automatizamos?',
+  'cta.p': 'Transformemos horas de trabajo manual en sistemas eficientes e inteligentes.',
+  'cta.btn': 'Escríbeme por WhatsApp',
+
+  'preview.note': 'Fase 2 · sistema de componentes glass',
 }
 
 export type DictKey = keyof typeof es
@@ -52,7 +80,35 @@ export const en: Record<DictKey, string> = {
   'kpi.orders': 'Orders / month',
   'kpi.uptime': 'Automation',
 
-  'preview.note': 'Phase 1 · visual system preview',
+  'nav.label': 'Main navigation',
+
+  'svc.eyebrow': 'Services',
+  'svc.title': 'What I do',
+  'svc.sub': 'Three pieces that fit together: processes that run themselves, AI that makes decisions and infrastructure that stays up.',
+  'svc.auto': 'Automation',
+  'svc.auto.d': 'Workflows that run complete processes end to end without human intervention.',
+  'svc.ai': 'AI & agents',
+  'svc.ai.d': 'LLMs and agents built into daily work: they classify, extract data and reply.',
+  'svc.infra': 'Infrastructure',
+  'svc.infra.d': 'Docker, VPS and databases ready for continuous production.',
+
+  'prj.eyebrow': 'Projects',
+  'prj.title': "What I've built",
+  'prj.reel.t': 'AI video pipeline',
+  'prj.reel.d': 'An AI agent writes the script, adds the voice, animates in code and renders. No camera, no editor.',
+  'prj.umbral.t': 'Umbral sales panel',
+  'prj.umbral.d': 'Internal tool where every company is enriched by AI: scoring, call script, expected objections and a review of their website.',
+  'prj.umbral.private': 'Internal use',
+  'prj.view': 'View project',
+
+  'exp.eyebrow': 'Career',
+  'exp.title': 'Experience',
+
+  'cta.title': 'Shall we automate?',
+  'cta.p': 'Let’s turn hours of manual work into efficient, intelligent systems.',
+  'cta.btn': 'Message me on WhatsApp',
+
+  'preview.note': 'Phase 2 · glass component system',
 }
 
 export const dictionaries = { es, en }

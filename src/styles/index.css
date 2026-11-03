@@ -58,6 +58,8 @@ html.light {
 }
 
 html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   background-color: var(--bg);
@@ -85,6 +87,18 @@ body {
   backdrop-filter: blur(24px) saturate(160%);
 }
 .glass-strong { background: var(--glass-strong); }
+
+/* Reflejo que sigue al puntero (lo posiciona GlassCard con --x / --y) */
+.spotlight { position: relative; isolation: isolate; }
+.spotlight::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 0%), color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.spotlight:hover::before { opacity: 1; }
 
 /* Sin soporte de backdrop-filter: cristal opaco legible */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
