@@ -78,7 +78,9 @@ body {
 
 /* ============================================
    CRISTAL
+   En la capa "components" para que las utilidades de Tailwind (bg-*, border-*) puedan sobrescribirlo
    ============================================ */
+@layer components {
 .glass {
   background: var(--glass);
   border: 1px solid var(--glass-border);
@@ -87,6 +89,9 @@ body {
   backdrop-filter: blur(24px) saturate(160%);
 }
 .glass-strong { background: var(--glass-strong); }
+/* Cristal dentro de cristal: solo el exterior desenfoca. Un backdrop-filter anidado
+   cuesta mucho y en Chrome provoca costuras al hacer scroll. */
+.glass .glass { -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 /* Reflejo que sigue al puntero (lo posiciona GlassCard con --x / --y) */
 .spotlight { position: relative; isolation: isolate; }
@@ -104,59 +109,66 @@ body {
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass { background: color-mix(in srgb, var(--bg) 88%, white 12%); }
 }
+}
 
 /* ============================================
    FONDOS AMBIENTALES
    ============================================ */
 .ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 
-/* Aurora: manchas de color muy desenfocadas que derivan despacio */
+/* Aurora: manchas de color que derivan despacio.
+   Son degradados radiales, no filter: blur(): un blur enorme sobre una capa fija
+   se pinta por trozos al hacer scroll y deja "cortes" visibles a través del cristal. */
 .aurora-blob {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.55;
+  opacity: 0.6;
   will-change: transform;
 }
-html.light .aurora-blob { opacity: 0.4; }
-.aurora-blob.a { width: 55vmax; height: 55vmax; left: -10vmax; top: -15vmax; background: #1d4ed8; animation: drift-a 26s ease-in-out infinite alternate; }
-.aurora-blob.b { width: 45vmax; height: 45vmax; right: -12vmax; top: 10vmax; background: #0ea5e9; animation: drift-b 32s ease-in-out infinite alternate; }
-.aurora-blob.c { width: 40vmax; height: 40vmax; left: 25vw; bottom: -20vmax; background: #6366f1; animation: drift-c 38s ease-in-out infinite alternate; }
+html.light .aurora-blob { opacity: 0.45; }
+.aurora-blob.a { width: 70vmax; height: 70vmax; left: -20vmax; top: -25vmax; background: radial-gradient(closest-side, #1d4ed8, transparent); animation: drift-a 26s ease-in-out infinite alternate; }
+.aurora-blob.b { width: 60vmax; height: 60vmax; right: -20vmax; top: 5vmax; background: radial-gradient(closest-side, #0ea5e9, transparent); animation: drift-b 32s ease-in-out infinite alternate; }
+.aurora-blob.c { width: 55vmax; height: 55vmax; left: 20vw; bottom: -28vmax; background: radial-gradient(closest-side, #6366f1, transparent); animation: drift-c 38s ease-in-out infinite alternate; }
 @keyframes drift-a { to { transform: translate(18vw, 12vh) scale(1.15); } }
 @keyframes drift-b { to { transform: translate(-16vw, 18vh) scale(0.9); } }
 @keyframes drift-c { to { transform: translate(-10vw, -16vh) scale(1.1); } }
 
 /* Grano fino encima para que el degradado no parezca plano */
 .grain {
-  position: absolute; inset: -50%;
+  position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
   opacity: 0.06;
   mix-blend-mode: overlay;
 }
 
-/* Foto: imagen a pantalla completa, desenfocada y oscurecida (como en el reel) */
+/* Foto: imagen a pantalla completa y oscurecida (como en el reel).
+   La imagen debe venir ya desenfocada de fábrica, por el mismo motivo que la aurora. */
 .photo-layer {
-  position: absolute; inset: -40px;
+  position: absolute; inset: 0;
   background-size: cover;
   background-position: center;
-  filter: blur(14px) saturate(115%);
-  transform: scale(1.06);
 }
 .photo-veil { position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(5 7 13 / 0.45), rgb(5 7 13 / 0.7)); }
 html.light .photo-veil { background: linear-gradient(to bottom, rgb(238 242 247 / 0.35), rgb(238 242 247 / 0.6)); }
 
-/* Escena de respaldo sin imagen: interior con ventanales, todo en CSS */
+/* Escena de respaldo sin imagen: interior con ventanales, todo en degradados suaves (sin blur) */
 .photo-fallback {
-  position: absolute; inset: -40px;
-  filter: blur(18px);
+  position: absolute; inset: 0;
   background:
-    /* montantes de los ventanales */
-    repeating-linear-gradient(to right, transparent 0 15%, rgb(30 28 26 / 0.85) 15% 16.2%),
+    /* montantes de los ventanales, con bordes difuminados */
+    repeating-linear-gradient(to right, transparent 0%, transparent 12%, rgb(30 28 26 / 0.55) 15%, rgb(30 28 26 / 0.55) 16%, transparent 19%, transparent 20%),
     /* luz de las ventanas (cielo) sobre el suelo cálido */
-    linear-gradient(to bottom, #8fb3d9 0%, #c9d8e6 38%, #e9dcc8 52%, #6b5646 60%, #2b221c 100%);
+    linear-gradient(to bottom, #8fb3d9 0%, #c9d8e6 36%, #e2d6c4 50%, #8a7360 58%, #4a3b30 70%, #2b221c 100%);
 }
 
+/* Marquesina del stack: la lista va repetida un número par de veces, así que desplazar un 50 % cierra el bucle */
+.marquee { animation: marquee 120s linear infinite; }
+.marquee.reverse { animation-direction: reverse; }
+.marquee:hover { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(calc(-50% - 0.5rem)); } }
+
 @media (prefers-reduced-motion: reduce) {
-  .aurora-blob { animation: none; }
+  .aurora-blob, .marquee { animation: none; }
+  .marquee { flex-wrap: wrap; width: auto; justify-content: center; padding-inline: 1rem; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }

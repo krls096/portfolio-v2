@@ -5,7 +5,7 @@ type Tone = 'default' | 'accent' | 'success'
 
 const tones: Record<Tone, string> = {
   default: 'text-fg/85',
-  accent: 'text-accent-2',
+  accent: 'text-accent-2 light:text-accent bg-accent/15 border-accent/25',
   success: 'text-success',
 }
 

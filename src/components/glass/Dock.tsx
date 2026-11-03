@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { Briefcase, FolderKanban, House, Layers, Mail, type LucideIcon } from 'lucide-react'
+import { Briefcase, ChartColumn, FolderKanban, House, Layers, Mail, type LucideIcon } from 'lucide-react'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import { usePreferences } from '../../hooks/usePreferences'
 import type { DictKey } from '../../i18n/dictionaries'
@@ -7,6 +7,7 @@ import type { DictKey } from '../../i18n/dictionaries'
 export const NAV: { id: string; icon: LucideIcon; label: DictKey }[] = [
   { id: 'inicio', icon: House, label: 'nav.home' },
   { id: 'servicios', icon: Layers, label: 'nav.services' },
+  { id: 'caso', icon: ChartColumn, label: 'nav.case' },
   { id: 'proyectos', icon: FolderKanban, label: 'nav.projects' },
   { id: 'trayectoria', icon: Briefcase, label: 'nav.experience' },
   { id: 'contacto', icon: Mail, label: 'nav.contact' },
