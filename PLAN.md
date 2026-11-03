@@ -1,6 +1,6 @@
 # Portfolio v2 — Plan de rediseño
 
-> Estado: **fases 1-2 hechas · fase 3 montada (secciones con los textos de TEXTOS.md)** · siguiente: fase 4 (agente de chat, paleta ⌘K). Repo: [krls096/portfolio-v2](https://github.com/krls096/portfolio-v2). La web antigua (`portfolio-website`) no se toca.
+> Estado: **fases 1-4 hechas** (la 4: agente de chat y paleta ⌘K) · siguiente: fase 5 (pulido, SEO, Lighthouse). Repo: [krls096/portfolio-v2](https://github.com/krls096/portfolio-v2). La web antigua (`portfolio-website`) no se toca.
 > Fecha: 2026-11-03
 
 ## 0. Decisiones tomadas

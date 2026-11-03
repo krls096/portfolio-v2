@@ -14,6 +14,20 @@ export const es = {
   'controls.bg': 'Cambiar fondo',
   'controls.bg.aurora': 'Aurora',
   'controls.bg.photo': 'Foto',
+
+  'palette.open': 'Abrir paleta de comandos',
+  'palette.title': 'Paleta de comandos',
+  'palette.placeholder': 'Busca una sección o acción…',
+  'palette.empty': 'Sin resultados',
+  'palette.sections': 'Secciones',
+  'palette.actions': 'Acciones',
+  'palette.links': 'Enlaces',
+  'palette.hint': '↑↓ moverte · Enter abrir · Esc cerrar',
+  'action.chat': 'Preguntarle al asistente',
+  'action.whatsapp': 'Escribir por WhatsApp',
+  'action.email': 'Copiar email',
+  'action.copied': 'Email copiado',
+  'nav.method': 'Método',
 }
 
 export type DictKey = keyof typeof es
@@ -33,6 +47,20 @@ export const en: Record<DictKey, string> = {
   'controls.bg': 'Change background',
   'controls.bg.aurora': 'Aurora',
   'controls.bg.photo': 'Photo',
+
+  'palette.open': 'Open command palette',
+  'palette.title': 'Command palette',
+  'palette.placeholder': 'Search a section or action…',
+  'palette.empty': 'No results',
+  'palette.sections': 'Sections',
+  'palette.actions': 'Actions',
+  'palette.links': 'Links',
+  'palette.hint': '↑↓ move · Enter open · Esc close',
+  'action.chat': 'Ask the assistant',
+  'action.whatsapp': 'Message on WhatsApp',
+  'action.email': 'Copy email',
+  'action.copied': 'Email copied',
+  'nav.method': 'Method',
 }
 
 export const dictionaries = { es, en }

@@ -1,3 +1,5 @@
+import { ChatAgent } from './components/ai/ChatAgent'
+import { CommandPalette } from './components/ai/CommandPalette'
 import { AmbientBackground } from './components/background/AmbientBackground'
 import { Controls } from './components/glass/Controls'
 import { Dock } from './components/glass/Dock'
@@ -37,6 +39,9 @@ export default function App() {
         <Experience />
         <Contact />
       </main>
+
+      <ChatAgent />
+      <CommandPalette />
     </>
   )
 }

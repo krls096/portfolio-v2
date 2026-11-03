@@ -1,3 +1,4 @@
+import { chatEn } from './chat'
 import type { Content } from './types'
 
 export const en: Content = {
@@ -174,4 +175,5 @@ export const en: Content = {
     email: 'Email',
   },
   footer: '© 2026 Carlos Cantos · Ponent Labs · Valencia',
+  chat: chatEn,
 }

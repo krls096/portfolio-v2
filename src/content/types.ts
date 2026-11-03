@@ -62,4 +62,32 @@ export type Content = {
   }
   contact: { title: string; body: string; whatsapp: string; email: string }
   footer: string
+  chat: ChatContent
+}
+
+// Botón que acompaña a una respuesta del asistente
+export type ChatAction =
+  | { kind: 'scroll'; target: string; label: string }
+  | { kind: 'link'; href: string; label: string }
+
+export type ChatIntent = {
+  id: string
+  // Frases (con espacio) se buscan tal cual; palabras sueltas, como inicio de palabra ("tecnolog" → "tecnologías")
+  keywords: string[]
+  answer: string
+  action?: ChatAction
+}
+
+export type ChatContent = {
+  open: string
+  title: string
+  subtitle: string
+  greeting: string
+  placeholder: string
+  send: string
+  close: string
+  typing: string
+  suggestions: { label: string; intent: string }[]
+  intents: ChatIntent[]
+  fallback: { answer: string; action: ChatAction }
 }
