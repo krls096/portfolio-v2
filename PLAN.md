@@ -1,6 +1,6 @@
 # Portfolio v2 — Plan de rediseño
 
-> Estado: **fases 1-5 hechas** (Lighthouse móvil 96 / escritorio 100) · siguiente: fase 6 (deploy en Vercel y dominio). Siguientes pasos detallados en [SIGUIENTES-PASOS.md](SIGUIENTES-PASOS.md). Repo: [krls096/portfolio-v2](https://github.com/krls096/portfolio-v2). La web antigua (`portfolio-website`) no se toca.
+> Estado: **fases 1-6 hechas** · en línea en https://carlos.ponentlabs.com (Lighthouse móvil 96 / escritorio 100). Siguientes pasos detallados en [SIGUIENTES-PASOS.md](SIGUIENTES-PASOS.md). Repo: [krls096/portfolio-v2](https://github.com/krls096/portfolio-v2). La web antigua (`portfolio-website`) no se toca.
 > Fecha: 2026-11-03
 
 ## 0. Decisiones tomadas

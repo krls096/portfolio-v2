@@ -1,23 +1,12 @@
-import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { usePreferences } from '../../hooks/usePreferences'
 
-// Si existe public/bg/ambient.jpg se usa como foto; si no, la escena CSS de respaldo
-const PHOTO_URL = '/bg/ambient.jpg'
-
-function usePhotoAvailable() {
-  const [ok, setOk] = useState(false)
-  useEffect(() => {
-    const img = new Image()
-    img.onload = () => setOk(true)
-    img.src = PHOTO_URL
-  }, [])
-  return ok
-}
+// Para usar una foto real: ponla en public/bg/ y escribe aquí su ruta (p. ej. '/bg/ambient.jpg').
+// Sin foto se usa la escena CSS de respaldo, sin pedir nada al servidor.
+const PHOTO_URL: string | null = null
 
 export function AmbientBackground() {
   const { backdrop } = usePreferences()
-  const hasPhoto = usePhotoAvailable()
 
   return (
     <div className="ambient" aria-hidden="true">
@@ -38,7 +27,7 @@ export function AmbientBackground() {
             </>
           ) : (
             <>
-              {hasPhoto
+              {PHOTO_URL
                 ? <div className="photo-layer" style={{ backgroundImage: `url(${PHOTO_URL})` }} />
                 : <div className="photo-fallback" />}
               <div className="photo-veil" />

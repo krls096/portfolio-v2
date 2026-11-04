@@ -12,7 +12,7 @@
 | 3. Secciones con los textos revisados | ✅ hecha |
 | 4. IA: chat "Pregúntale a Carlos" + paleta Ctrl/⌘+K | ✅ hecha |
 | 5. Pulido: SEO, rendimiento, accesibilidad, responsive | ✅ hecha |
-| **6. Deploy en Vercel + dominio** | ⏭️ **siguiente** |
+| 6. Deploy en Vercel + dominio | ✅ en línea en https://carlos.ponentlabs.com |
 
 ## Cómo arrancarlo
 
@@ -48,10 +48,17 @@ Se abre en http://localhost:5173. Para comprobar que compila: `npm run build`.
 
 ## Fase 6: deploy
 
-1. Crear el proyecto en Vercel conectado a `krls096/portfolio-v2`. Preset: Vite. Build: `npm run build`. Salida: `dist`.
-2. Dominio recomendado: **`carlos.ponentlabs.com`**, con un registro CNAME a Vercel en el DNS de ponentlabs.com (razones en PLAN.md §10).
-3. Desde ponentlabs.com, un enlace discreto tipo "Sobre el fundador".
-4. Prueba final en el dominio real: Lighthouse, la imagen OG con un validador de enlaces y la web en el móvil de verdad.
+**Hecho:**
+- Proyecto `portfolio-v2` en Vercel (equipo Krls), conectado al repo. Cada push a `main` despliega solo.
+- En producción: https://portfolio-v2-drab-kappa-63.vercel.app
+- Dominio `carlos.ponentlabs.com` añadido al proyecto. Vercel lo da por verificado porque ponentlabs.com ya está en tu cuenta.
+
+**DNS (hecho el 2026-11-04):** CNAME `carlos` → `326bcd0a127710e3.vercel-dns-017.com` en Cloudflare, sin proxy (nube gris). Vercel lo da por bien configurado. El certificado es de Let's Encrypt, válido hasta feb 2027 y se renueva solo. `http://` redirige a `https://`.
+
+**Después del DNS:**
+1. ✅ Web, certificado, imagen OG, sitemap y robots respondiendo en el dominio.
+2. Lighthouse sobre el dominio real.
+3. En ponentlabs.com, un enlace discreto tipo "Sobre el fundador".
 
 ## Decisiones que siguen en pie
 
@@ -64,4 +71,4 @@ Se abre en http://localhost:5173. Para comprobar que compila: `npm run build`.
 
 ## Para retomar
 
-Con decir **"seguimos con la fase 6"** basta.
+Pendiente opcional: Lighthouse sobre el dominio real y el enlace "Sobre el fundador" en ponentlabs.com.
