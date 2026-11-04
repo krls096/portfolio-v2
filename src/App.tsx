@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { ChatAgent } from './components/ai/ChatAgent'
 import { CommandPalette } from './components/ai/CommandPalette'
 import { AmbientBackground } from './components/background/AmbientBackground'
@@ -42,6 +43,7 @@ export default function App() {
 
       <ChatAgent />
       <CommandPalette />
+      <Analytics />
     </>
   )
 }
