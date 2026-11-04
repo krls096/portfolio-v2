@@ -99,7 +99,7 @@
    Chips: Inteligencia Artificial · Motor de edición · TTS
 
 4. **Edits al ritmo de la música** (clip del edit, sin sonido)
-   El mismo pipeline en modo cinemático: corta los planos al compás de la canción, añade zooms, flashes y títulos, y entrega el montaje listo para publicar.
+   El mismo pipeline en modo cinemático: corta los planos al compás de la canción, añade zooms, flashes, títulos y efectos, y entrega el montaje listo para publicar.
    Chips: Inteligencia Artificial · Motor de edición · Beat sync
    *Pie pequeño:* "Material audiovisual de sus respectivos autores" `[?]` ¿pongo el nombre del artista o videoclip? si pon ej ilustrativo esdeekid o algo así, si veo que es muy violento o tal pues lo cambio mas adelante
 

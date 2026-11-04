@@ -1,8 +1,9 @@
 export const ease = [0.22, 1, 0.36, 1] as const
 
-// Entrada al cargar la página
+// Entrada al cargar la página. Arranca casi transparente en vez de en 0 para que
+// el navegador cuente el texto del hero como pintado desde el primer frame (LCP)
 export const enter = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0.01, y: 24 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, delay, ease },
 })

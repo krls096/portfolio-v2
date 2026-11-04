@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
 
 type Props = { src: string; poster: string; label: string; className?: string }
@@ -8,6 +8,16 @@ type Props = { src: string; poster: string; label: string; className?: string }
 export function LazyVideo({ src, poster, label, className = '' }: Props) {
   const ref = useRef<HTMLVideoElement>(null)
   const reduce = useReducedMotion()
+  const [near, setNear] = useState(false)
+
+  // La portada tampoco se descarga hasta que el vídeo está cerca de la pantalla
+  useEffect(() => {
+    const v = ref.current
+    if (!v) return
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setNear(true); io.disconnect() } }, { rootMargin: '600px' })
+    io.observe(v)
+    return () => io.disconnect()
+  }, [])
 
   useEffect(() => {
     const v = ref.current
@@ -28,7 +38,7 @@ export function LazyVideo({ src, poster, label, className = '' }: Props) {
     <video
       ref={ref}
       className={`block w-full object-cover bg-black/40 ${className}`}
-      poster={poster}
+      poster={near ? poster : undefined}
       muted loop playsInline preload="none"
       aria-label={label}
     />

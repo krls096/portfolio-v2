@@ -21,10 +21,10 @@ export const en: Content = {
     },
   },
   kpis: [
-    { value: 1800, prefix: '+', label: 'clients managed' },
-    { value: 612, label: 'orders a month' },
-    { value: 80, suffix: ' h', label: 'saved every month' },
-    { value: 47, suffix: ' s', label: 'average per order' },
+    { value: 1800, live: 'clients', label: 'clients managed' },
+    { value: 612, live: 'orders', label: 'orders a month' },
+    { value: 81, live: 'hours', suffix: ' h', label: 'saved every month' },
+    { value: 47, live: 'avg', suffix: ' s', label: 'average per order' },
   ],
   services: {
     eyebrow: 'Services',
@@ -80,9 +80,9 @@ export const en: Content = {
       { id: '#4817', text: '6 boxes · Thursday delivery', time: '44 s' },
     ],
     metrics: [
-      { value: 1800, prefix: '+', label: 'clients' },
-      { value: 612, label: 'orders / month' },
-      { value: 47, suffix: ' s', label: 'per order' },
+      { value: 1800, live: 'clients', label: 'clients' },
+      { value: 612, live: 'orders', label: 'orders / month' },
+      { value: 47, live: 'avg', suffix: ' s', label: 'per order' },
       { value: 5, label: 'workflows' },
     ],
     flow: ['WhatsApp', 'n8n', 'AI agent', 'Database', 'Order completed'],
@@ -115,9 +115,9 @@ export const en: Content = {
       {
         id: 'edits',
         title: 'Edits cut to the music',
-        body: 'The same pipeline in cinematic mode: it cuts shots to the beat, adds zooms, flashes and titles, and delivers an edit ready to publish.',
+        body: 'The same pipeline in cinematic mode: it cuts shots to the beat, adds zooms, flashes, titles and effects, and delivers an edit ready to publish.',
         chips: ['Artificial Intelligence', 'Editing engine', 'Beat sync'],
-        credit: 'Audiovisual material by its respective authors · esdeekid',
+        credit: 'Song: “Omens” by EsDeeKid · footage by its respective owners',
       },
       {
         id: 'panel',

@@ -13,15 +13,15 @@ export function Controls() {
 
   return (
     <div className="flex items-center gap-2">
-      <button type="button" onClick={() => setPaletteOpen(true)} className={btn} aria-label={t('palette.open')} title={t('palette.open')} aria-keyshortcuts="Control+K Meta+K">
+      <button type="button" onClick={() => setPaletteOpen(true)} className={btn} aria-label={`${isMac ? '⌘K' : 'Ctrl K'} · ${t('palette.open')}`} title={t('palette.open')} aria-keyshortcuts="Control+K Meta+K">
         <Command size={16} aria-hidden />
         <kbd className="hidden font-mono text-xs md:inline">{isMac ? '⌘K' : 'Ctrl K'}</kbd>
       </button>
-      <button type="button" onClick={toggleBackdrop} className={btn} aria-label={t('controls.bg')} title={t('controls.bg')}>
+      <button type="button" onClick={toggleBackdrop} className={btn} aria-label={`${t(backdrop === 'aurora' ? 'controls.bg.aurora' : 'controls.bg.photo')} · ${t('controls.bg')}`} title={t('controls.bg')}>
         {backdrop === 'aurora' ? <Sparkles size={16} aria-hidden /> : <Image size={16} aria-hidden />}
         <span className="hidden sm:inline">{t(backdrop === 'aurora' ? 'controls.bg.aurora' : 'controls.bg.photo')}</span>
       </button>
-      <button type="button" onClick={toggleLang} className={btn} aria-label={t('controls.lang')} title={t('controls.lang')}>
+      <button type="button" onClick={toggleLang} className={btn} aria-label={`${lang === 'es' ? 'EN' : 'ES'} · ${t('controls.lang')}`} title={t('controls.lang')}>
         <Globe size={16} aria-hidden />
         <span>{lang === 'es' ? 'EN' : 'ES'}</span>
       </button>

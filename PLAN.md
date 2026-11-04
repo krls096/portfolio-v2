@@ -1,6 +1,6 @@
 # Portfolio v2 — Plan de rediseño
 
-> Estado: **fases 1-4 hechas** (la 4: agente de chat y paleta ⌘K) · siguiente: fase 5 (pulido, SEO, Lighthouse). Repo: [krls096/portfolio-v2](https://github.com/krls096/portfolio-v2). La web antigua (`portfolio-website`) no se toca.
+> Estado: **fases 1-5 hechas** (Lighthouse móvil 96 / escritorio 100) · siguiente: fase 6 (deploy en Vercel y dominio). Siguientes pasos detallados en [SIGUIENTES-PASOS.md](SIGUIENTES-PASOS.md). Repo: [krls096/portfolio-v2](https://github.com/krls096/portfolio-v2). La web antigua (`portfolio-website`) no se toca.
 > Fecha: 2026-11-03
 
 ## 0. Decisiones tomadas
@@ -175,7 +175,7 @@ Revisión contigo al final de las fases 2, 3 y 4 con capturas del navegador.
 ## 9. Pendiente de tu parte (no bloquea la fase 1)
 
 - ✅ Reel de ejemplo recibido y optimizado para la web.
-- ⚠️ **Edit (omens):** usa imágenes de un videoclip y una canción de terceros. No se incrusta en el portfolio por derechos de autor. Si quieres mostrar edits, usamos uno hecho con material propio o libre.
+- ✅ **Edit (omens):** se muestra como clip corto sin sonido con crédito "esdeekid" (pendiente confirmar el autor real).
 - ✅ Panel comercial de Umbral: solo descripción, sin capturas.
 
 ## 10. Dominio: portfolio vs. clientes de Ponent Labs

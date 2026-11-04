@@ -5,12 +5,15 @@ import {
 } from 'lucide-react'
 import { usePreferences } from '../../hooks/usePreferences'
 import { scrollToSection, useUi } from '../../hooks/useUi'
-import type { DictKey } from '../../i18n/dictionaries'
+import { dictionaries, type DictKey } from '../../i18n/dictionaries'
 import { normalize } from '../../lib/intents'
 import { NAV } from '../glass/Dock'
 import { ease } from '../ui/motion'
 
-type Item = { id: string; group: DictKey; label: string; icon: LucideIcon; run: () => void; keep?: boolean }
+type Item = { id: string; group: DictKey; label: string; icon: LucideIcon; run: () => void; keep?: boolean; terms?: string }
+
+// La búsqueda acepta las palabras de los dos idiomas, sea cual sea el activo
+const both = (...keys: DictKey[]) => keys.map(k => `${dictionaries.es[k]} ${dictionaries.en[k]}`).join(' ')
 
 const EMAIL = 'krls096mus@gmail.com'
 
@@ -50,15 +53,15 @@ export function CommandPalette() {
   }, [open])
 
   const items = useMemo<Item[]>(() => [
-    ...NAV.map(n => ({ id: n.id, group: 'palette.sections' as DictKey, label: t(n.label), icon: n.icon, run: () => scrollToSection(n.id) })),
-    { id: 'metodo', group: 'palette.sections', label: t('nav.method'), icon: Compass, run: () => scrollToSection('metodo') },
-    { id: 'chat', group: 'palette.actions', label: t('action.chat'), icon: Sparkles, run: () => setChatOpen(true) },
-    { id: 'lang', group: 'palette.actions', label: t('controls.lang'), icon: Globe, run: toggleLang, keep: true },
-    { id: 'theme', group: 'palette.actions', label: theme === 'dark' ? t('controls.toLight') : t('controls.toDark'), icon: theme === 'dark' ? Sun : Moon, run: toggleTheme, keep: true },
-    { id: 'bg', group: 'palette.actions', label: `${t('controls.bg')} · ${t(backdrop === 'aurora' ? 'controls.bg.photo' : 'controls.bg.aurora')}`, icon: Image, run: toggleBackdrop, keep: true },
-    { id: 'whatsapp', group: 'palette.links', label: t('action.whatsapp'), icon: MessageCircle, run: () => window.open('https://wa.me/34644226771', '_blank', 'noopener') },
+    ...NAV.map(n => ({ id: n.id, group: 'palette.sections' as DictKey, label: t(n.label), terms: both(n.label), icon: n.icon, run: () => scrollToSection(n.id) })),
+    { id: 'metodo', group: 'palette.sections', label: t('nav.method'), terms: both('nav.method'), icon: Compass, run: () => scrollToSection('metodo') },
+    { id: 'chat', group: 'palette.actions', label: t('action.chat'), terms: both('action.chat'), icon: Sparkles, run: () => setChatOpen(true) },
+    { id: 'lang', group: 'palette.actions', label: t('controls.lang'), terms: both('controls.lang'), icon: Globe, run: toggleLang, keep: true },
+    { id: 'theme', group: 'palette.actions', label: theme === 'dark' ? t('controls.toLight') : t('controls.toDark'), terms: both('controls.toLight', 'controls.toDark'), icon: theme === 'dark' ? Sun : Moon, run: toggleTheme, keep: true },
+    { id: 'bg', group: 'palette.actions', label: `${t('controls.bg')} · ${t(backdrop === 'aurora' ? 'controls.bg.photo' : 'controls.bg.aurora')}`, terms: both('controls.bg', 'controls.bg.photo', 'controls.bg.aurora'), icon: Image, run: toggleBackdrop, keep: true },
+    { id: 'whatsapp', group: 'palette.links', label: t('action.whatsapp'), terms: both('action.whatsapp'), icon: MessageCircle, run: () => window.open('https://wa.me/34644226771', '_blank', 'noopener') },
     {
-      id: 'email', group: 'palette.links', label: copied ? t('action.copied') : t('action.email'), icon: copied ? Check : Mail, keep: true,
+      id: 'email', group: 'palette.links', label: copied ? t('action.copied') : t('action.email'), terms: both('action.email'), icon: copied ? Check : Mail, keep: true,
       run: () => { navigator.clipboard?.writeText(EMAIL).then(() => setCopied(true)).catch(() => { location.href = `mailto:${EMAIL}` }) },
     },
     { id: 'linkedin', group: 'palette.links', label: 'LinkedIn', icon: Linkedin, run: () => window.open('https://www.linkedin.com/in/carlos-cantos-blasco-650023437/', '_blank', 'noopener') },
@@ -66,7 +69,7 @@ export function CommandPalette() {
   ], [t, theme, backdrop, copied, toggleLang, toggleTheme, toggleBackdrop, setChatOpen])
 
   const q = normalize(query)
-  const results = q ? items.filter(i => normalize(`${i.label} ${i.id}`).includes(q)) : items
+  const results = q ? items.filter(i => normalize(`${i.label} ${i.terms ?? ''} ${i.id}`).includes(q)) : items
   const current = Math.min(active, Math.max(results.length - 1, 0))
 
   function run(item: Item) {

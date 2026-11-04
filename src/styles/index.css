@@ -3,6 +3,12 @@
 /* Modo claro manual con html.light (el oscuro es el de por defecto) */
 @custom-variant light (&:where(.light, .light *));
 
+/* Fuentes servidas desde la propia web (variables, solo latín) y precargadas en index.html:
+   llegan antes que el JS, así que no hay salto de texto al cambiar de fuente */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/fonts/inter.woff2") format("woff2"); }
+@font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/fonts/inter-tight.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url("/fonts/jetbrains-mono.woff2") format("woff2"); }
+
 /* ============================================
    TOKENS (oscuro por defecto / claro con html.light)
    ============================================ */
@@ -18,7 +24,7 @@
   --glass-shadow: 0 20px 60px -20px rgb(0 0 0 / 0.6);
   /* Velo bajo el texto para garantizar contraste sobre cualquier fondo */
   --scrim: rgb(5 7 13 / 0.35);
-  --accent: #3b82f6;
+  --accent: #2563eb; /* con texto blanco encima: contraste 5.2:1 */
   --accent-2: #60a5fa;
   --success: #34d399;
 }
@@ -160,6 +166,12 @@ html.light .photo-veil { background: linear-gradient(to bottom, rgb(238 242 247 
     /* luz de las ventanas (cielo) sobre el suelo cálido */
     linear-gradient(to bottom, #8fb3d9 0%, #c9d8e6 36%, #e2d6c4 50%, #8a7360 58%, #4a3b30 70%, #2b221c 100%);
 }
+
+/* Edit: punch-in en cada bombo y flash al empezar el compás */
+.edit-punch { animation: edit-punch 0.42s cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes edit-punch { from { transform: scale(1.09); } to { transform: scale(1); } }
+.edit-flash { animation: edit-flash 0.32s ease-out forwards; }
+@keyframes edit-flash { from { opacity: 0.55; } to { opacity: 0; } }
 
 /* Marquesina del stack: la lista va repetida un número par de veces, así que desplazar un 50 % cierra el bucle */
 .marquee { animation: marquee 120s linear infinite; }

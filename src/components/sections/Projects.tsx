@@ -7,14 +7,15 @@ import { usePreferences } from '../../hooks/usePreferences'
 import { Chip } from '../glass/Chip'
 import { GlassCard } from '../glass/GlassCard'
 import { GlassPanel } from '../glass/GlassPanel'
+import { EditArt } from '../ai/EditArt'
 import { SectionHeading } from '../glass/SectionHeading'
 import { LazyVideo } from '../ui/LazyVideo'
 import { reveal, sectionClass } from '../ui/motion'
 
 // Columnas que ocupa cada proyecto en la rejilla de 6 (escritorio)
 const span: Record<Project['id'], string> = {
-  ponent: 'lg:col-span-4',
-  umbral: 'lg:col-span-2',
+  ponent: 'md:col-span-2 lg:col-span-4',
+  umbral: 'md:col-span-2 lg:col-span-2',
   pipeline: 'lg:col-span-3',
   edits: 'lg:col-span-3',
   panel: 'lg:col-span-3',
@@ -108,16 +109,12 @@ export function Projects() {
     ponent: <PonentArt />,
     pipeline: (
       <div className="mb-6 grid grid-cols-2 gap-3">
-        <LazyVideo src="/media/reel-space.mp4" poster="/media/reel-space-poster.jpg" label={by.pipeline.title} className="aspect-[9/16] rounded-2xl" />
-        <LazyVideo src="/media/reel-engine.mp4" poster="/media/reel-engine-poster.jpg" label={by.pipeline.title} className="aspect-[9/16] rounded-2xl" />
+        <LazyVideo src="/media/reel-space.mp4" poster="/media/reel-space-poster.webp" label={by.pipeline.title} className="aspect-[9/16] rounded-2xl" />
+        <LazyVideo src="/media/reel-engine.mp4" poster="/media/reel-engine-poster.webp" label={by.pipeline.title} className="aspect-[9/16] rounded-2xl" />
       </div>
     ),
     // El clip crece hasta igualar la altura de la tarjeta del pipeline (horizontal, se puede recortar)
-    edits: (
-      <div className="relative mb-6 aspect-video flex-1 overflow-hidden rounded-2xl lg:aspect-auto">
-        <LazyVideo src="/media/edit-omens.mp4" poster="/media/edit-omens-poster.jpg" label={by.edits.title} className="absolute inset-0 h-full" />
-      </div>
-    ),
+    edits: <EditArt label={by.edits.title} />,
     panel: <PanelArt />,
     propflow: <PropFlowArt />,
   }
@@ -125,7 +122,7 @@ export function Projects() {
   return (
     <section id="proyectos" className={sectionClass}>
       <SectionHeading eyebrow={projects.eyebrow} title={projects.title} />
-      <div className="grid gap-5 lg:grid-cols-6">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
         {projects.items.map((p, i) => (
           <motion.div key={p.id} {...reveal((i % 2) * 0.08)} className={span[p.id]}>
             <GlassCard interactive className="flex h-full flex-col p-5 md:p-6">

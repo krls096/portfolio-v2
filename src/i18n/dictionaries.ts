@@ -28,6 +28,9 @@ export const es = {
   'action.email': 'Copiar email',
   'action.copied': 'Email copiado',
   'nav.method': 'Método',
+  'edits.sync': 'Sincronizado al beat',
+  'edits.cut': 'Corte',
+  'meta.description': 'Desarrollador de automatización e IA en Valencia. Fundador de Ponent Labs. Diseño flujos con n8n, integro LLMs y despliego sistemas en producción.',
 }
 
 export type DictKey = keyof typeof es
@@ -61,6 +64,9 @@ export const en: Record<DictKey, string> = {
   'action.email': 'Copy email',
   'action.copied': 'Email copied',
   'nav.method': 'Method',
+  'edits.sync': 'Synced to the beat',
+  'edits.cut': 'Cut',
+  'meta.description': 'Automation & AI developer in Valencia, Spain. Founder of Ponent Labs. I design n8n workflows, integrate LLMs and ship systems to production.',
 }
 
 export const dictionaries = { es, en }

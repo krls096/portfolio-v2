@@ -21,10 +21,10 @@ export const es: Content = {
     },
   },
   kpis: [
-    { value: 1800, prefix: '+', label: 'clientes gestionados' },
-    { value: 612, label: 'pedidos al mes' },
-    { value: 80, suffix: ' h', label: 'ahorradas al mes' },
-    { value: 47, suffix: ' s', label: 'de media por pedido' },
+    { value: 1800, live: 'clients', label: 'clientes gestionados' },
+    { value: 612, live: 'orders', label: 'pedidos al mes' },
+    { value: 81, live: 'hours', suffix: ' h', label: 'ahorradas al mes' },
+    { value: 47, live: 'avg', suffix: ' s', label: 'de media por pedido' },
   ],
   services: {
     eyebrow: 'Servicios',
@@ -80,9 +80,9 @@ export const es: Content = {
       { id: '#4817', text: '6 cajas · entrega el jueves', time: '44 s' },
     ],
     metrics: [
-      { value: 1800, prefix: '+', label: 'clientes' },
-      { value: 612, label: 'pedidos / mes' },
-      { value: 47, suffix: ' s', label: 'por pedido' },
+      { value: 1800, live: 'clients', label: 'clientes' },
+      { value: 612, live: 'orders', label: 'pedidos / mes' },
+      { value: 47, live: 'avg', suffix: ' s', label: 'por pedido' },
       { value: 5, label: 'workflows' },
     ],
     flow: ['WhatsApp', 'n8n', 'Agente IA', 'Base de datos', 'Pedido completado'],
@@ -115,9 +115,9 @@ export const es: Content = {
       {
         id: 'edits',
         title: 'Edits al ritmo de la música',
-        body: 'El mismo pipeline en modo cinemático: corta los planos al compás de la canción, añade zooms, flashes y títulos, y entrega el montaje listo para publicar.',
+        body: 'El mismo pipeline en modo cinemático: corta los planos al compás de la canción, añade zooms, flashes, títulos y efectos, y entrega el montaje listo para publicar.',
         chips: ['Inteligencia Artificial', 'Motor de edición', 'Beat sync'],
-        credit: 'Material audiovisual de sus respectivos autores · esdeekid',
+        credit: 'Canción: «Omens», de EsDeeKid · imágenes de sus respectivos autores',
       },
       {
         id: 'panel',

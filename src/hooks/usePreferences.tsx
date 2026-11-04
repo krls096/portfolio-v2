@@ -29,6 +29,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     root.lang = lang
+    document.querySelector('meta[name="description"]')?.setAttribute('content', dictionaries[lang]['meta.description'])
     store('lang', lang)
   }, [lang, root])
 
