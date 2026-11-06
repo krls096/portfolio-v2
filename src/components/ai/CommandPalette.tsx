@@ -7,6 +7,7 @@ import { usePreferences } from '../../hooks/usePreferences'
 import { scrollToSection, useUi } from '../../hooks/useUi'
 import { dictionaries, type DictKey } from '../../i18n/dictionaries'
 import { normalize } from '../../lib/intents'
+import { EMAIL, WHATSAPP, copyText, gmailCompose } from '../../lib/contact'
 import { NAV } from '../glass/Dock'
 import { ease } from '../ui/motion'
 
@@ -15,7 +16,6 @@ type Item = { id: string; group: DictKey; label: string; icon: LucideIcon; run: 
 // La búsqueda acepta las palabras de los dos idiomas, sea cual sea el activo
 const both = (...keys: DictKey[]) => keys.map(k => `${dictionaries.es[k]} ${dictionaries.en[k]}`).join(' ')
 
-const EMAIL = 'krls096mus@gmail.com'
 
 // Ctrl/⌘ + K: saltar a secciones y lanzar acciones sin tocar el ratón
 export function CommandPalette() {
@@ -59,10 +59,11 @@ export function CommandPalette() {
     { id: 'lang', group: 'palette.actions', label: t('controls.lang'), terms: both('controls.lang'), icon: Globe, run: toggleLang, keep: true },
     { id: 'theme', group: 'palette.actions', label: theme === 'dark' ? t('controls.toLight') : t('controls.toDark'), terms: both('controls.toLight', 'controls.toDark'), icon: theme === 'dark' ? Sun : Moon, run: toggleTheme, keep: true },
     { id: 'bg', group: 'palette.actions', label: `${t('controls.bg')} · ${t(backdrop === 'aurora' ? 'controls.bg.photo' : 'controls.bg.aurora')}`, terms: both('controls.bg', 'controls.bg.photo', 'controls.bg.aurora'), icon: Image, run: toggleBackdrop, keep: true },
-    { id: 'whatsapp', group: 'palette.links', label: t('action.whatsapp'), terms: both('action.whatsapp'), icon: MessageCircle, run: () => window.open('https://wa.me/34644226771', '_blank', 'noopener') },
+    { id: 'whatsapp', group: 'palette.links', label: t('action.whatsapp'), terms: both('action.whatsapp'), icon: MessageCircle, run: () => window.open(WHATSAPP, '_blank', 'noopener') },
+    { id: 'email-open', group: 'palette.links', label: t('action.emailOpen'), terms: both('action.emailOpen') + ' gmail correo mail', icon: Mail, run: () => window.open(gmailCompose(t('action.emailSubject')), '_blank', 'noopener') },
     {
       id: 'email', group: 'palette.links', label: copied ? t('action.copied') : t('action.email'), terms: both('action.email'), icon: copied ? Check : Mail, keep: true,
-      run: () => { navigator.clipboard?.writeText(EMAIL).then(() => setCopied(true)).catch(() => { location.href = `mailto:${EMAIL}` }) },
+      run: () => { copyText(EMAIL).then(ok => (ok ? setCopied(true) : window.open(gmailCompose(t('action.emailSubject')), '_blank', 'noopener'))) },
     },
     { id: 'linkedin', group: 'palette.links', label: 'LinkedIn', icon: Linkedin, run: () => window.open('https://www.linkedin.com/in/carlos-cantos-blasco-650023437/', '_blank', 'noopener') },
     { id: 'github', group: 'palette.links', label: 'GitHub', icon: Github, run: () => window.open('https://github.com/krls096', '_blank', 'noopener') },

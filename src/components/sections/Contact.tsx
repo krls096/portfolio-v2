@@ -1,15 +1,30 @@
+import { useState } from 'react'
 import { motion } from 'motion/react'
-import { ArrowUpRight, Mail, MessageCircle } from 'lucide-react'
+import { ArrowUpRight, Check, Copy, Mail, MessageCircle } from 'lucide-react'
 import { useContent } from '../../hooks/useContent'
+import { usePreferences } from '../../hooks/usePreferences'
+import { EMAIL, WHATSAPP, copyText, gmailCompose } from '../../lib/contact'
 import { GlassButton } from '../glass/GlassButton'
 import { GlassPanel } from '../glass/GlassPanel'
 import { reveal, sectionClass } from '../ui/motion'
 
-const WHATSAPP = 'https://wa.me/34644226771'
-const EMAIL = 'mailto:krls096mus@gmail.com'
-
 export function Contact() {
   const { contact, footer } = useContent()
+  const { t } = usePreferences()
+  const [copied, setCopied] = useState(false)
+  const [showEmail, setShowEmail] = useState(false)
+
+  // Para quien no use Gmail: copia la dirección y avisa un par de segundos.
+  // Si el navegador no deja copiar, la enseña en pantalla para copiarla a mano.
+  async function copyEmail() {
+    if (await copyText(EMAIL)) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } else {
+      setShowEmail(true)
+    }
+  }
+
   return (
     <>
       <section id="contacto" className={sectionClass}>
@@ -20,10 +35,17 @@ export function Contact() {
             <p className="relative mx-auto mt-5 max-w-xl text-lg text-muted">{contact.body}</p>
             <div className="relative mt-9 flex flex-wrap justify-center gap-3">
               <GlassButton variant="primary" href={WHATSAPP}><MessageCircle size={18} aria-hidden /> {contact.whatsapp}</GlassButton>
-              <GlassButton href={EMAIL}><Mail size={18} aria-hidden /> {contact.email}</GlassButton>
+              <div className="inline-flex items-center gap-1.5">
+                <GlassButton href={gmailCompose(t('action.emailSubject'))} title={EMAIL}><Mail size={18} aria-hidden /> {contact.email}</GlassButton>
+                <GlassButton onClick={copyEmail} className="w-12 !px-0" aria-label={copied ? t('action.copied') : t('action.email')} title={copied ? t('action.copied') : t('action.email')}>
+                  {copied ? <Check size={18} className="text-success" aria-hidden /> : <Copy size={18} aria-hidden />}
+                </GlassButton>
+                <span className="sr-only" aria-live="polite">{copied ? t('action.copied') : ''}</span>
+              </div>
               <GlassButton variant="ghost" href="https://www.linkedin.com/in/carlos-cantos-blasco-650023437/">LinkedIn <ArrowUpRight size={18} aria-hidden /></GlassButton>
               <GlassButton variant="ghost" href="https://github.com/krls096">GitHub <ArrowUpRight size={18} aria-hidden /></GlassButton>
             </div>
+            {showEmail && <p className="relative mt-5 select-all font-mono text-sm text-fg">{EMAIL}</p>}
           </GlassPanel>
         </motion.div>
       </section>
