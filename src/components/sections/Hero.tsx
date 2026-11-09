@@ -41,7 +41,7 @@ function AgentConsole() {
             <span className="absolute inset-0 animate-ping rounded-full bg-success/60" />
             <span className="relative size-2 rounded-full bg-success" />
           </span>
-          live
+          demo
         </span>
       </div>
 

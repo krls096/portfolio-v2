@@ -39,7 +39,7 @@ Se abre en http://localhost:5173. Para comprobar que compila: `npm run build`.
 - **Responsive**: sin scroll horizontal a 375, 768, 1024 y 1440 px. En tablet los proyectos van ahora en dos columnas.
 - **Detalles**:
   - La paleta busca en los dos idiomas.
-  - Cifras "vivas" (`src/lib/liveStats.ts`): clientes, pedidos, horas y segundos por pedido cambian un poco en cada visita (clientes 1.803–1.846, pedidos 596–631). En la misma sesión no cambian al recargar. Las horas salen de los pedidos, y la gráfica y los KPIs muestran las mismas cifras.
+  - ~~Cifras "vivas"~~ (quitado el 2026-11-09): el caso de éxito va en pasado, con jun–sep 2026 y cifras fijas.
   - Tarjeta de edits con efectos sobre el clip: zoom en cada bombo, flash por compás, bandas de cine, título «Omens · EsDeeKid», contador de cortes y línea de tiempo del beat. Solo se anima mientras está en pantalla y no se mueve con "reducir movimiento".
 
 **Queda por decidir (no bloquea):**
@@ -65,7 +65,7 @@ Se abre en http://localhost:5173. Para comprobar que compila: `npm run build`.
 - **Chat sin API**: las respuestas están en `src/content/chat.ts`. Para añadir una pregunta, se crea una intención con sus palabras clave y su respuesta, en ES y en EN. Solo pasaríamos a un modelo barato si se queda corto, y siempre detrás de una función serverless con límites (PLAN.md §6b).
 - **Umbral**: el panel comercial se menciona sin capturas ni enlace, porque tiene datos reales.
 - **Distribuidor**: sigue anónimo. No hay precio "desde X €".
-- **Números**: nada de cifras redondas (612, no 600).
+- **Números**: nada de cifras redondas. El caso de éxito va en pasado (proyecto terminado en sep 2026) y sin cifras que cambien solas.
 - **Flujo de trabajo**: cada fase se comprueba en el navegador y se te pregunta antes de cada commit y push.
 - **Web antigua**: la carpeta `Portfolio` no se toca.
 

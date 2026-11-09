@@ -23,7 +23,7 @@ export const chatEs: ChatContent = {
     {
       id: 'what',
       keywords: ['que haces', 'a que te dedicas', 'dedicas', 'servicio', 'ofreces', 'automatiz', 'haces'],
-      answer: 'Automatizo procesos e integro IA en negocios. El ejemplo más claro: un sistema que recibe pedidos por WhatsApp y los registra solo, para +1.800 clientes.',
+      answer: 'Automatizo procesos e integro IA en negocios. El ejemplo más claro: un sistema que recibía pedidos por WhatsApp y los registraba solo, para +1.800 clientes.',
       action: { kind: 'scroll', target: 'servicios', label: 'Ver servicios' },
     },
     {
@@ -104,7 +104,7 @@ export const chatEn: ChatContent = {
     {
       id: 'what',
       keywords: ['what do you do', 'do you do', 'service', 'offer', 'automat', 'job'],
-      answer: 'I automate processes and integrate AI into businesses. The clearest example: a system that takes orders on WhatsApp and records them on its own, for 1,800+ clients.',
+      answer: 'I automate processes and integrate AI into businesses. The clearest example: a system that took orders on WhatsApp and recorded them on its own, for 1,800+ clients.',
       action: { kind: 'scroll', target: 'servicios', label: 'See services' },
     },
     {

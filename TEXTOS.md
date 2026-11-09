@@ -19,7 +19,7 @@
 
 **Texto:**
 - **A)** Automatizo procesos e integro IA en negocios reales. Mi sistema de pedidos lleva meses en producción atendiendo a +1.800 clientes sin que nadie toque un Excel.
-- **B)** Busco dónde se le van las horas a un negocio y las devuelvo con automatización e IA. Hoy, un sistema mío gestiona los pedidos de +1.800 clientes sin intervención manual.
+- **B)** Busco dónde se le van las horas a un negocio y las devuelvo con automatización e IA. Por ejemplo, un sistema que desarrollé gestionó los pedidos de +1.800 clientes sin intervención manual.
 
 **Botones:** `Hablar conmigo` · `Ver proyectos`
 
@@ -68,13 +68,13 @@
 
 **Antetítulo:** Caso de éxito
 **Título:** Pedidos por WhatsApp, procesados solos
-**Texto:** Una distribuidora recibía cientos de pedidos al mes por WhatsApp y alguien tenía que copiarlos a mano. Ahora un agente de IA los lee, identifica al cliente y el producto, y los registra en la base de datos. Las personas solo intervienen cuando el agente tiene dudas.
+**Texto:** Una distribuidora recibía cientos de pedidos al mes por WhatsApp y alguien tenía que copiarlos a mano. Desarrollé un agente de IA que los leía, identificaba al cliente y el producto, y los registraba en la base de datos. Las personas solo intervenían cuando el agente tenía dudas.
 
 **Flujo:** WhatsApp → n8n → Agente IA → Base de datos → Pedido completado
 
 **Bloques del dashboard:**
 - Gráfico "Pedidos por mes", con el mes actual resaltado (valores ilustrativos)
-- Actividad reciente: 4-5 pedidos inventados
+- Ejemplo de actividad: 4-5 pedidos inventados
 - Métricas: clientes, pedidos/mes y tiempo medio por pedido (47s como ya he dicho antes)
 
 `[?]` ¿Se puede decir que es una **distribuidora** y de **qué sector**, o lo dejamos anónimo del todo? lo dejamos anonimo por si aca
@@ -195,3 +195,5 @@ Fila 2: TypeScript · JavaScript · React · Tailwind · Linux VPS · Git · Clo
 2. Confirmar los `[?]`: cuarta cifra, si se nombra el sector de la distribuidora, el crédito del edit, fechas de Ponent Labs y del freelance, estado de AI-900/AI-102, precio "desde" y si aceptas ofertas de empleo.
 3. Si quitamos algún proyecto.
 4. Cualquier frase que no te suene a ti.
+
+> **Actualización 2026-11-09:** el caso de éxito va en pasado. El proyecto con la distribuidora terminó en septiembre de 2026, así que la gráfica muestra solo jun–sep 2026 (valores ilustrativos) y los KPIs hablan del "mejor mes" (548 pedidos, 72 h, 48 s). Las cifras ya no cambian en cada visita y la consola del hero pone "demo".

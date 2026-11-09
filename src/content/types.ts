@@ -1,7 +1,5 @@
-import type { LiveKey } from '../lib/liveStats'
-
 // Forma del contenido de la web. es.ts y en.ts deben cumplirla entera.
-export type Metric = { value: number | string; prefix?: string; suffix?: string; label: string; live?: LiveKey }
+export type Metric = { value: number | string; prefix?: string; suffix?: string; label: string }
 
 export type Project = {
   id: 'ponent' | 'umbral' | 'pipeline' | 'edits' | 'panel' | 'propflow'
